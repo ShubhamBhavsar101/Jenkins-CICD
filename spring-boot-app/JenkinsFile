@@ -6,7 +6,7 @@ pipeline {
     }
   }
   environment {
-	SONARQUBE_ENV = 'SonarServer'
+	SONARQUBE_ENV = 'Sonarqube'
 	DOCKER_IMAGE = "shubhszone/av-jenkins-cicd:${BUILD_NUMBER}"
 	REGISTRY_CREDENTIALS = credentials('docker-cred')
   }
