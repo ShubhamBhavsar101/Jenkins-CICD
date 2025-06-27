@@ -1,10 +1,4 @@
 pipeline {
-//   agent {
-//     docker {
-//       image 'shubhszone/maven-docker-agent-jdk17:v1'
-//       args '--user root --network host -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2' // mount Docker socket to access the host's Docker daemon
-//     }
-//   }
     agent any
     
     tools {
