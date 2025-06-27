@@ -11,15 +11,6 @@ pipeline {
 	REGISTRY_CREDENTIALS = credentials('docker-cred')
   }
   stages {
-    stage('Clean Workspace') {
-            steps {
-                // Clean untracked files and reset permissions
-                sh '''
-                    git clean -fdx
-                    chmod -R u+w .
-                '''
-            }
-        }
     stage('Checkout') {
       steps {
         sh 'echo passed';
