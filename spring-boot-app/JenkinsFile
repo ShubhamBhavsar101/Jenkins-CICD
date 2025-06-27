@@ -1,10 +1,12 @@
 pipeline {
-  agent {
-    docker {
-      image 'shubhszone/maven-docker-agent:v1'
-      args '--network jenkins-net -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2' // mount Docker socket to access the host's Docker daemon
-    }
-  }
+  // agent {
+  //   docker {
+  //     image 'shubhszone/maven-docker-agent:v1'
+  //     args '--network jenkins-net -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2' // mount Docker socket to access the host's Docker daemon
+  //   }
+  // }
+  agent any
+  
   environment {
 	SONARQUBE_ENV = 'Sonarqube'
 	DOCKER_IMAGE = "shubhszone/av-jenkins-cicd:${BUILD_NUMBER}"
