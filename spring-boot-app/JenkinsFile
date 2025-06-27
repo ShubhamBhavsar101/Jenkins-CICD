@@ -29,7 +29,7 @@ pipeline {
     stage('SonarQube Analysis') {
         steps {
             withSonarQubeEnv("${env.SONARQUBE_ENV}") {
-                sh 'cd spring-boot-app && mvn sonar:sonar -Dsonar.host.url=http://sonarqube:9000'
+                sh 'cd spring-boot-app && mvn sonar:sonar -Dsonar.host.url=http://localhost:9000'
             }
         }
     }
