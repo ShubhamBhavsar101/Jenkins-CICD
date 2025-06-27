@@ -1,24 +1,28 @@
 pipeline {
-  agent {
-    docker {
-      image 'shubhszone/maven-docker-agent:v1'
-      args '--network host -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2' // mount Docker socket to access the host's Docker daemon
+//   agent {
+//     docker {
+//       image 'shubhszone/maven-docker-agent-jdk17:v1'
+//       args '--user root --network host -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2' // mount Docker socket to access the host's Docker daemon
+//     }
+//   }
+    agent any
+    
+    tools {
+        // jdk 'JDK-17'
+        maven 'Maven3'
     }
-  }
-
-  environment {
-	SONARQUBE_ENV = 'Sonarqube'
-	DOCKER_IMAGE = "shubhszone/av-jenkins-cicd:${BUILD_NUMBER}"
-	REGISTRY_CREDENTIALS = credentials('docker-cred')
-  }
-  stages {
-    stage('Checkout') {
-      steps {
-        sh 'docker network inspect jenkins-net'
-        sh 'echo passed';
-        // git branch: 'main', url: 'https://github.com/ShubhamBhavsar101/Jenkins-Zero-To-Hero.git'
-      }
-    }
+    
+    environment {
+    	SONARQUBE_ENV = 'Sonarqube'
+    	DOCKER_IMAGE = "shubhszone/av-jenkins-cicd:${BUILD_NUMBER}"
+    	REGISTRY_CREDENTIALS = credentials('docker-cred')
+     }
+    stages {
+        stage('Checkout') {
+          steps {
+            git branch: 'main', url: 'https://github.com/ShubhamBhavsar101/AV-Jenkins-CICD.git'
+          }
+        }
     stage('Build') {
       steps {
         // build the project and create a JAR file
@@ -37,6 +41,7 @@ pipeline {
     stage('Build and Push Docker Image') {
       steps {
         script {
+            sh 'id && ls -l /var/run/docker.sock'
             sh 'cd spring-boot-app && docker build -t ${DOCKER_IMAGE} .'
             def dockerImage = docker.image("${DOCKER_IMAGE}")
             docker.withRegistry('https://index.docker.io/v1/', "docker-cred") {
@@ -70,4 +75,3 @@ pipeline {
 	}
   }
 }
-
