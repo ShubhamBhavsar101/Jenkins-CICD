@@ -1,6 +1,6 @@
-projectKey=com.abhishek:spring-boot-demo
-serverUrl=http://192.168.1.13:9000
-serverVersion=25.4.0.105899
-dashboardUrl=http://192.168.1.13:9000/dashboard?id=com.abhishek%3Aspring-boot-demo
-ceTaskId=a524d51d-99f9-4dad-87e0-1c94d113abd3
-ceTaskUrl=http://192.168.1.13:9000/api/ce/task?id=a524d51d-99f9-4dad-87e0-1c94d113abd3
+projectKey=com.shubhdev:maven-demo
+serverUrl=http://localhost:9000
+serverVersion=25.5.0.107428
+dashboardUrl=http://localhost:9000/dashboard?id=com.shubhdev%3Amaven-demo
+ceTaskId=68e38cce-f57d-4441-8887-51edd94f75a9
+ceTaskUrl=http://localhost:9000/api/ce/task?id=68e38cce-f57d-4441-8887-51edd94f75a9
