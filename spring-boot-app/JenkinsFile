@@ -7,10 +7,6 @@ pipeline {
         maven 'Maven3'
     }
 
-    triggers {
-        githubPush()
-    }
-
     environment {
     	SONARQUBE_ENV = 'Sonarqube'
     	DOCKER_IMAGE = "shubhszone/av-jenkins-cicd:${BUILD_NUMBER}"
