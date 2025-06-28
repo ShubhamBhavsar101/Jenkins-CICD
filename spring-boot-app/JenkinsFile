@@ -5,6 +5,10 @@ pipeline {
         // jdk 'JDK-17'
         maven 'Maven3'
     }
+
+    triggers {
+        githubPush()
+    }
     
     environment {
     	SONARQUBE_ENV = 'Sonarqube'
@@ -12,11 +16,6 @@ pipeline {
     	REGISTRY_CREDENTIALS = credentials('docker-cred')
      }
     stages {
-        //stage('Checkout') {
-        //  steps {
-        //    git branch: 'main', url: 'https://github.com/ShubhamBhavsar101/AV-Jenkins-CICD.git'
-        //  }
-        //}
     stage('Build') {
       steps {
         // build the project and create a JAR file
