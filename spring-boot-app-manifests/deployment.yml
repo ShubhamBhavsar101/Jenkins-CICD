@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: shubhszone/av-jenkins-cicd:105
+        image: shubhszone/av-jenkins-cicd:106
         ports:
         - containerPort: 8080
