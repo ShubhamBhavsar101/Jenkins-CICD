@@ -16,14 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-<<<<<<< HEAD
-<<<<<<< HEAD
         image: shubhszone/av-jenkins-cicd:106
-=======
-        image: shubhszone/av-jenkins-cicd:104
->>>>>>> parent of a110215 (Update deployment image to version 105)
-=======
-        image: shubhszone/av-jenkins-cicd:105
->>>>>>> parent of 91e76db (Update deployment image to version 106)
         ports:
         - containerPort: 8080
