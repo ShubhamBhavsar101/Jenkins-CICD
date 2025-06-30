@@ -42,7 +42,7 @@ pipeline {
     }
    	stage('Update Deployment File') {
 		environment {
-			GIT_REPO_NAME = "AV-Jenkins-CICD"
+			GIT_REPO_NAME = "Jenkins-CICD"
 			GIT_USER_NAME = "ShubhamBhavsar101"
 		}
 		steps {
