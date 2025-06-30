@@ -48,7 +48,7 @@ pipeline {
 		steps {
 			withCredentials([string(credentialsId: 'Github-PAT', variable: 'GITHUB_TOKEN')]) {
         sh """
-					git config --global --add safe.directory /var/lib/jenkins/workspace/AV-Jenkins-CICD
+					git config --global --add safe.directory /var/lib/jenkins/workspace/Jenkins-CICD
           git status
 
 					git config user.email 'shubhamcbhavsar198@gmail.com'
