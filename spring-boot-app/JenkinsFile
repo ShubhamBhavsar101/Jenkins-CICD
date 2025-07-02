@@ -15,7 +15,6 @@ pipeline {
     stage('Build') {
       steps {
         // build the project and create a JAR file
-	deleteDir()
         sh 'cd spring-boot-app && mvn clean package'
       }
     }
