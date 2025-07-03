@@ -64,4 +64,9 @@ pipeline {
 		}
 	}
   }
+	stage("Approval for Production") {
+		steps {
+			input message:"Approve Deployment to Production", ok:"Deploy"
+		}
+	}
 }
