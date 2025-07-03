@@ -41,7 +41,9 @@ pipeline {
     }
 	stage("Approval for Production") {
 		steps {
-			input message:"Approve Deployment to Production", ok:"Deploy"
+			timeout(time: 2, unit: 'MINUTES') {
+				input message:"Approve Deployment to Production", ok:"Deploy", cancel:"Reject"
+			}
 		}
 	}
    	stage('Update Deployment File') {
