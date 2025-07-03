@@ -39,6 +39,11 @@ pipeline {
         }
       }
     }
+	stage("Approval for Production") {
+		steps {
+			input message:"Approve Deployment to Production", ok:"Deploy"
+		}
+	}
    	stage('Update Deployment File') {
 		environment {
 			GIT_REPO_NAME = "Jenkins-CICD"
@@ -64,9 +69,5 @@ pipeline {
 		}
 	}
   }
-	stage("Approval for Production") {
-		steps {
-			input message:"Approve Deployment to Production", ok:"Deploy"
-		}
-	}
+	
 }
